@@ -1,6 +1,6 @@
 cask "rinnegan" do
-  version "0.1.0"
-  sha256 "da1d49949fc30c955d754751769336c6d785ea945cf2e80db2114f9ddabd7ed5"
+  version "0.1.1"
+  sha256 "6b327d5842a582d16983120bdf70236c269576904a376a63702acb14d10803f3"
 
   url "https://github.com/0xrnp/homebrew-tap/releases/download/v#{version}/Rinnegan-#{version}.zip"
   name "Rinnegan"
