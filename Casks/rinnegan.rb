@@ -1,6 +1,6 @@
 cask "rinnegan" do
-  version "0.1.3"
-  sha256 "f5d8bed1b273ed1d1ff49097c7f2095bf46d8360713d033ce3a0da25fa2b689e"
+  version "0.1.4"
+  sha256 "546dbed35f941cd608d0e29220170ce904d194804a2e087424e8d8b262542eb8"
 
   url "https://github.com/0xrnp/homebrew-tap/releases/download/v#{version}/Rinnegan-#{version}.zip"
   name "Rinnegan"
@@ -8,13 +8,14 @@ cask "rinnegan" do
   homepage "https://github.com/0xrnp/homebrew-tap"
 
   depends_on arch: :arm64
+  depends_on macos: :golden_gate
 
   app "Rinnegan.app"
 
   # The app is not notarized yet, so macOS would block its first launch.
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-dr", "com.apple.quarantine", "#{appdir}/Rinnegan.app"]
+  postflight_steps do
+    run "/usr/bin/xattr",
+        args: ["-dr", "com.apple.quarantine", "{{appdir}}/Rinnegan.app"]
   end
 
   zap trash: "~/Library/Preferences/app.rnp.Rinnegan.plist"
